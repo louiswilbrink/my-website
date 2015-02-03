@@ -17,6 +17,35 @@ $mobile-break: 667px;
 $tablet-vertical-break: 768px;
 $tablet-horizontal-break: 1024px;
 
+/* Construction page */
+
+.construction-page {
+    >.profile {
+        color: black;
+        text-align: center;
+        padding: 36px;
+        >a {
+            >.avatar {
+                width: 144px;
+                border-radius: 72px;
+                text-align: center;
+            }
+        }
+        >.platform-links {
+            >span {
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+            img {
+                width: 16px;
+                height: 16px;
+            }
+        }
+    }
+    >.construction-message {
+        text-align: center;
+    }
+}
 /* Home page (/) */
 
 .home-page {
