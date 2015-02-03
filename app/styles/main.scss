@@ -1,0 +1,78 @@
+$icon-font-path: '../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/';
+
+// bower:scss
+@import "../../bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+/* my variables */
+
+$mobile-break: 667px;
+$tablet-vertical-break: 768px;
+$tablet-horizontal-break: 1024px;
+$laptop-break: 1200px;
+
+/* Home page (/) */
+
+.home-page {
+    >.side-bar {
+        background-color: #39127E;
+        @media screen and (min-width: $tablet-horizontal-break) {
+            position: fixed;
+            width: 600px;
+            left: 0px;
+            top: 0px;
+            bottom: 0px;
+        }
+        @media screen and (max-width: $tablet-horizontal-break) {
+            position: fixed;
+            width: 512px;
+            left: 0px;
+            top: 0px;
+            bottom: 0px;
+        }
+        @media screen and (max-width: $tablet-vertical-break) {
+            position: fixed;
+            width: 384px;
+            left: 0px;
+            top: 0px;
+            bottom: 0px;
+        }
+        @media screen and (max-width: $mobile-break) {
+            width: 100%;
+            position: static;
+        }
+        >.profile {
+            text-align: center;
+            padding: 36px;
+            >a {
+                >.avatar {
+                    width: 144px;
+                    border-radius: 72px;
+                    text-align: center;
+                }
+            }
+            >.platform-links {
+                >span {
+                    margin-left: 10px;
+                    margin-right: 10px;
+                }
+                img {
+                    width: 16px;
+                    height: 16px;
+                }
+            }
+        }
+    }
+    .main {
+        background-color: lightgray;
+        width: 100%;
+        height: 100px;
+    }
+}
