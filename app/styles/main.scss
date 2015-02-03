@@ -16,7 +16,6 @@ $icon-font-path: '../bower_components/bootstrap-sass-official/assets/fonts/boots
 $mobile-break: 667px;
 $tablet-vertical-break: 768px;
 $tablet-horizontal-break: 1024px;
-$laptop-break: 1200px;
 
 /* Home page (/) */
 
@@ -49,6 +48,7 @@ $laptop-break: 1200px;
             position: static;
         }
         >.profile {
+            color: white;
             text-align: center;
             padding: 36px;
             >a {
@@ -69,10 +69,33 @@ $laptop-break: 1200px;
                 }
             }
         }
+        >.navigation {
+            text-align: center;
+            >a {
+                display: block;
+                @media screen and (max-width: $mobile-break) {
+                    display: inline;
+                    margin-left: 5px;
+                    margin-right: 5px;
+                }
+            }
+        }
     }
     .main {
         background-color: lightgray;
         width: 100%;
         height: 100px;
+        @media screen and (min-width: $tablet-horizontal-break) {
+            margin-left: 600px;
+        }
+        @media screen and (max-width: $tablet-horizontal-break) {
+            margin-left: 512px;
+        }
+        @media screen and (max-width: $tablet-vertical-break) {
+            margin-left: 384px;
+        }
+        @media screen and (max-width: $mobile-break) {
+            margin-left: 0px;
+        }
     }
 }
