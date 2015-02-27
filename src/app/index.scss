@@ -1,0 +1,24 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:400,700,700italic,400italic);
+
+html {
+  font-family: 'Roboto Slab', serif;
+}
+
+.home-page {
+    position: absolute;
+    .side-panel {
+        background-color: #3949ab;
+        >a {
+            >.avatar {
+                width: 144px;
+                border-radius: 72px;
+            }
+        }
+    }
+    .main-panel {
+        background-color: #B240BF;
+    }
+}
+
+// injector
+// endinjector
