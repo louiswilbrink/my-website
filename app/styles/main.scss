@@ -11,6 +11,12 @@ $icon-font-path: '../bower_components/bootstrap-sass-official/assets/fonts/boots
   padding: 0.2em 0;
 }
 
+/* high level css */
+
+/*body {*/
+  /*font-family: 'Roboto', sans-serif;*/
+/*}*/
+
 /* my variables */
 
 $mobile-break: 667px;
@@ -50,62 +56,67 @@ $tablet-horizontal-break: 1024px;
 
 .home-page {
     >.side-bar {
-        background-color: #39127E;
-        @media screen and (min-width: $tablet-horizontal-break) {
-            position: fixed;
-            width: 600px;
-            left: 0px;
-            top: 0px;
-            bottom: 0px;
-        }
-        @media screen and (max-width: $tablet-horizontal-break) {
-            position: fixed;
-            width: 512px;
-            left: 0px;
-            top: 0px;
-            bottom: 0px;
-        }
-        @media screen and (max-width: $tablet-vertical-break) {
-            position: fixed;
-            width: 384px;
-            left: 0px;
-            top: 0px;
-            bottom: 0px;
-        }
-        @media screen and (max-width: $mobile-break) {
-            width: 100%;
-            position: static;
-        }
-        >.profile {
-            color: white;
-            text-align: center;
-            padding: 36px;
-            >a {
-                >.avatar {
-                    width: 144px;
-                    border-radius: 72px;
-                    text-align: center;
+        >.tint {
+            background-color: #39127E;
+            /*opacity: 0.5;*/
+            @media screen and (min-width: $tablet-horizontal-break) {
+                position: fixed;
+                width: 600px;
+                left: 0px;
+                top: 0px;
+                bottom: 0px;
+            }
+            @media screen and (max-width: $tablet-horizontal-break) {
+                position: fixed;
+                width: 512px;
+                left: 0px;
+                top: 0px;
+                bottom: 0px;
+            }
+            @media screen and (max-width: $tablet-vertical-break) {
+                position: fixed;
+                width: 384px;
+                left: 0px;
+                top: 0px;
+                bottom: 0px;
+            }
+            @media screen and (max-width: $mobile-break) {
+                width: 100%;
+                position: static;
+            }
+            >.profile {
+                opacity: 1.0;
+                color: white;
+                text-align: center;
+                padding: 36px;
+                >a {
+                    >.avatar {
+                        width: 144px;
+                        border-radius: 72px;
+                        text-align: center;
+                    }
+                }
+                >.platform-links {
+                    >span {
+                        margin-left: 10px;
+                        margin-right: 10px;
+                    }
+                    img {
+                        width: 16px;
+                        height: 16px;
+                    }
                 }
             }
-            >.platform-links {
-                >span {
-                    margin-left: 10px;
-                    margin-right: 10px;
-                }
-                img {
-                    width: 16px;
-                    height: 16px;
-                }
-            }
-        }
-        >.navigation {
-            text-align: center;
-            >a {
-                display: block;
-                @media screen and (max-width: $mobile-break) {
-                    display: inline;
-                    margin-left: 5px;
-                    margin-right: 5px;
+            >.navigation {
+                opacity: 1.0;
+                text-align: center;
+                >a {
+                    display: block;
+                    @media screen and (max-width: $mobile-break) {
+                        display: inline;
+                        margin-left: 5px;
+                        margin-right: 5px;
+                    }
                 }
             }
         }
