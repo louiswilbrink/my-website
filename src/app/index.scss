@@ -19,8 +19,12 @@ h2 {
     .side-panel {
         color: #F4FAFB;
         background-color: #284B77;
+        padding: 25px;
         .title {
             text-transform: uppercase;
+        }
+        >h1 {
+            margin-bottom: 0px;
         }
         >a {
             >.avatar {
@@ -32,6 +36,11 @@ h2 {
             >a >img {
                 height: 30px;
             }
+        }
+        .title {
+            margin-top: 0px;
+            margin-bottom: 0px;
+            text-align: center;
         }
     }
     .main-panel {
