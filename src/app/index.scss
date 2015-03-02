@@ -1,22 +1,45 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:400,700,700italic,400italic);
 
+
 html {
   font-family: 'Roboto Slab', serif;
+  font-weight: 400;
+}
+
+h1, h2 {
+    font-weight: 400;
+}
+
+h2 {
+    color: #953267;
 }
 
 .home-page {
     position: absolute;
     .side-panel {
-        background-color: #3949ab;
+        color: #F4FAFB;
+        background-color: #284B77;
+        .title {
+            text-transform: uppercase;
+        }
         >a {
             >.avatar {
                 width: 144px;
                 border-radius: 72px;
             }
         }
+        .link-icons {
+            >a >img {
+                height: 30px;
+            }
+        }
     }
     .main-panel {
-        background-color: #B240BF;
+        background-color: #F4FAFB;
+        >p {
+            margin: 25px;
+            text-align: justify;
+        }
     }
 }
 
