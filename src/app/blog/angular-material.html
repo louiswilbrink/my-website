@@ -1,0 +1,25 @@
+<h1>Angular Material Tutorial</h1>
+<h2>Date: March 2, 2015</h2>
+<p>Last year, Google announced Material Design and began to implement this design philosophy in all of its apps.  If you use Google Inbox or Maps, you've already seen what a Material Design app looks and feels like.</p>
+<p>Angular Material brings these UI components into the Angular world.  I've written two apps using only Angular-Material components and have be pleased with the results: the apps are simple and intuitive.  Plus, you get to leverage the fact that your users (if they use Google Apps) will already be familiar with the interactive components on the page</p>
+<p>So let's jump right in</p>
+<p>First, install Angular 1.3.x (required) and Angular-Material using your favorite method (bower, cdn, etc).  Or you can have all of that taken care of for you by installing the following generator:</p>
+<div>
+    <code>npm install generator-gulp-angular</code>
+</div>
+<div>
+    <code>yo gulp-angular myApp</code>
+</div>
+<p>Make sure to upgrade to the latest release on <a href="https://github.com/angular/material">GitHub</a>, not simply the offical pre-release version (0.6.0).  The docs reflect the newest commits to the repo, as do all of the examples in this blog post.
+<h2>Layout and Grid</h2>
+<p>One real difference between Angular Material and other Angular component libraries (like <a href="http://angular-ui.github.io/bootstrap/">Angular UI</a>), is that it has its own layout and grid system.  Instead of using Bootstrap to define layout, Angular Material defines CSS attribute selectors.  For example, here's the <code>layout</code> attribute selector:</p>
+<img src="https://s3.amazonaws.com/louiswilbrink-blog/layout1.png"/>
+<p>In this example, all of the child nodes will become line up horizontally.  The corresponding CSS looks like this:</p>
+<img src="https://s3.amazonaws.com/louiswilbrink-blog/layout2.png"/>
+<p>This is a good time to mention that Angular Material is based on Flexbox.  While not compatible with older browsers, using flexbox makes layout much more sane.</p>
+<p><code>layout-align</code> is another very handy attribute selector, allowing you to center divs while making the code very readable.  The following code will center the child nodes horizontally and vertically.</p>
+<img src="https://s3.amazonaws.com/louiswilbrink-blog/layout3.png"/>
+<p>The corresponding CSS looks like this:</p>
+<img src="https://s3.amazonaws.com/louiswilbrink-blog/layout4.png"/>
+<p>You can also use this system to make your app responsive.  For example, <code>layout-align-sm="column"</code> will stack all child nodes on top of each other if the device screen is below 600px.<code>layout-align-gt-sm="row"</code> will set keep all child nodes in a row when the device screen is above 600px.  Using the range of options, you can make sure your app behaves correctly across all device widths </p>
+
