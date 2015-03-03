@@ -1,25 +1,53 @@
-<h1>Angular Material Tutorial</h1>
-<h2>Date: March 2, 2015</h2>
-<p>Last year, Google announced Material Design and began to implement this design philosophy in all of its apps.  If you use Google Inbox or Maps, you've already seen what a Material Design app looks and feels like.</p>
-<p>Angular Material brings these UI components into the Angular world.  I've written two apps using only Angular-Material components and have be pleased with the results: the apps are simple and intuitive.  Plus, you get to leverage the fact that your users (if they use Google Apps) will already be familiar with the interactive components on the page</p>
-<p>So let's jump right in</p>
-<p>First, install Angular 1.3.x (required) and Angular-Material using your favorite method (bower, cdn, etc).  Or you can have all of that taken care of for you by installing the following generator:</p>
-<div>
-    <code>npm install generator-gulp-angular</code>
-</div>
-<div>
-    <code>yo gulp-angular myApp</code>
-</div>
-<p>Make sure to upgrade to the latest release on <a href="https://github.com/angular/material">GitHub</a>, not simply the offical pre-release version (0.6.0).  The docs reflect the newest commits to the repo, as do all of the examples in this blog post.
-<h2>Layout and Grid</h2>
-<p>One real difference between Angular Material and other Angular component libraries (like <a href="http://angular-ui.github.io/bootstrap/">Angular UI</a>), is that it has its own layout and grid system.  Instead of using Bootstrap to define layout, Angular Material defines CSS attribute selectors.  For example, here's the <code>layout</code> attribute selector:</p>
-<img src="https://s3.amazonaws.com/louiswilbrink-blog/layout1.png"/>
-<p>In this example, all of the child nodes will become line up horizontally.  The corresponding CSS looks like this:</p>
-<img src="https://s3.amazonaws.com/louiswilbrink-blog/layout2.png"/>
-<p>This is a good time to mention that Angular Material is based on Flexbox.  While not compatible with older browsers, using flexbox makes layout much more sane.</p>
-<p><code>layout-align</code> is another very handy attribute selector, allowing you to center divs while making the code very readable.  The following code will center the child nodes horizontally and vertically.</p>
-<img src="https://s3.amazonaws.com/louiswilbrink-blog/layout3.png"/>
-<p>The corresponding CSS looks like this:</p>
-<img src="https://s3.amazonaws.com/louiswilbrink-blog/layout4.png"/>
-<p>You can also use this system to make your app responsive.  For example, <code>layout-align-sm="column"</code> will stack all child nodes on top of each other if the device screen is below 600px.<code>layout-align-gt-sm="row"</code> will set keep all child nodes in a row when the device screen is above 600px.  Using the range of options, you can make sure your app behaves correctly across all device widths </p>
+<div class="home-page" layout-gt-sm="row" layout-sm="column" layout-fill>
 
+    <div class="side-panel" flex="50" layout="column" layout-align="center center">
+        <a><img class="avatar" src="https://s3.amazonaws.com/louiswilbrink.com/images/avatar.jpg"/></a>
+        <h1>Louis Wilbrink</h1>
+        <div class="link-icons" layout="row" layout-align="center" layout-padding>
+            <a flex href="https://twitter.com/louiswilbrink"><img src="https://s3.amazonaws.com/louiswilbrink.com/icons/Twitter_logo_blue.png"/></a>
+            <a flex href="https://github.com/louiswilbrink"><img src="https://s3.amazonaws.com/louiswilbrink.com/icons/Octocat-small.png"/></a>
+            <a flex href="https://www.linkedin.com/in/louiswilbrink"><img src="https://s3.amazonaws.com/louiswilbrink.com/icons/In-2C-21px-R.png"/></a>
+        </div>
+        <p class="title">Full Stack JavaScript Engineer</p>
+        <div class="nav-links">
+            <a href="#/angular-material"><p class="nav-link">blog</p></a>
+            <a href="#/"><p class="nav-link">about me</p></a>
+        </div>
+    </div>
+    <div class="main-panel">
+        <h1>Layout and Theming with Angular Material</h1>
+        <p class="date">Date: March 2, 2015</p>
+        <p>Last year, Google announced Material Design and began to implement this design philosophy in all of its apps.  If you use Google Inbox or Maps, you've already seen what a Material Design app looks and feels like.</p>
+        <p>Angular Material brings these UI components into the Angular world.  I've written two apps using only Angular-Material components and have been pleased with the results: the apps are simple and intuitive.  Plus, you get to leverage the fact that your users (if they use Google Apps) will already be familiar with the interactive components on the page</p>
+        <p>To get started, install Angular 1.3.x (required) and Angular-Material using your favorite method (bower, cdn, etc).  Or you can have all of that taken care of for you by installing the following generator:</p>
+        <div>
+            <code>npm install generator-gulp-angular</code>
+        </div>
+        <div>
+            <code>yo gulp-angular myApp</code>
+        </div>
+        <p>Make sure to upgrade to the latest release on <a href="https://github.com/angular/material">GitHub</a>, not simply the offical pre-release version (0.6.0).  The docs reflect the newest commits to the repo, as do all of the examples in this blog post.
+        <h2>Layout and Grid</h2>
+        <p>One real difference between Angular Material and other Angular component libraries (like <a href="http://angular-ui.github.io/bootstrap/">Angular UI</a>), is that it has its own layout and grid system.  Instead of using Bootstrap to define layout, Angular Material defines CSS attribute selectors.  For example, here's the <code>layout</code> attribute selector:</p>
+        <img src="https://s3.amazonaws.com/louiswilbrink-blog/layout1.png"/>
+        <p>In this example, all of the child nodes will become line up horizontally.  Here is what the CSS that comes with Angular Material looks like:</p>
+        <img src="https://s3.amazonaws.com/louiswilbrink-blog/layout2.png"/>
+        <p>This is a good time to mention that Angular Material is based on <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Flexible_boxes">Flexbox</a>.  While not compatible with older browsers, using flexbox makes layout much more sane.</p>
+        <p><code>layout-align</code> is another very handy attribute selector, allowing you to center divs while making the code very readable.  The following code will center the child nodes horizontally and vertically.</p>
+        <img src="https://s3.amazonaws.com/louiswilbrink-blog/layout3.png"/>
+        <p>The corresponding CSS looks like this:</p>
+        <img src="https://s3.amazonaws.com/louiswilbrink-blog/layout4.png"/>
+        <p>You can also use this system to make your app responsive.  For example, <code>layout-align-sm="column"</code> will stack all child nodes on top of each other if the device screen is below 600px.  <code>layout-align-gt-sm="row"</code> will set keep all child nodes in a row when the device screen is above 600px.  Using the range of options, you can make sure your app behaves correctly across all device widths.</p>
+        <p>What is really great about this layout system is that it enforces a separation of concerns when styling a page: attributes take care of layout, while classes take care of element styles.  Following this structure, you will have an easier time debugging layout or style issues by knowing where to look in the code (templates or stylesheets).  It also makes sense that layout information is visible in the DOM since it describes the behavior of an element relative to it's parent, siblings, and children.  Element styles that do not depend on its surrounding relatives can be kept in the stylesheet.</p>
+        <h2>Theming and Client Side Dynamic Styling</h2>
+        <p>Angular Material offers a handy service to theme your app called <code>$mdThemingProvider</code>.  With some quick code, I've applied an orange, green, and red theme:</p>
+        <img src="https://s3.amazonaws.com/louiswilbrink-blog/layout5.png"/>
+        <p>It turns my app from looking like this:</p>
+        <img src="https://s3.amazonaws.com/louiswilbrink-blog/layout6.png"/>
+        <p>To this:</p>
+        <img src="https://s3.amazonaws.com/louiswilbrink-blog/layout7.png"/>
+        <p>So that's pretty cool: about 10 different components took on a brand new style based on some configuration.  But what's really impressive about this is that we defined style on the client side programmatically.  This isn't SASS or Less where you precompile variable and definitions into static stylesheets.  Angular Material came up with styles on the frontend.  How?</p>
+        <p>If you open up Chrome developer tools while running an Angular Material app, you'll see   &#060;style&#062; tags that were never part of the source code.  If you expand those tags, you&#39;ll see something like this:</p>
+        <img src="https://s3.amazonaws.com/louiswilbrink-blog/layout8.png"/>
+        <p>What Angular Material is doing is injecting style tags into the DOM after processing theme configurations.  Programmable CSS on the backend (using SASS or Less) made CSS more sane and maintainable, so continuing this process on the frontend can only be a good thing.  I think that having the ability to programmatically style on the frontend has some creative applications, and is at least more flexible.</p>
+</div>

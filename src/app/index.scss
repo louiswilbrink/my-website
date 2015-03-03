@@ -1,5 +1,10 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:400,700,700italic,400italic);
 
+$break-smallest: 320px;
+$break-small: 600px;
+$break-medium: 800px;
+$break-large: 1024px;
+$break-largest: 1025px;
 
 html {
   font-family: 'Roboto Slab', serif;
@@ -21,10 +26,25 @@ a, a:visited {
 
 .home-page {
     position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
     .side-panel {
         color: #F4FAFB;
         background-color: #284B77;
         padding: 25px;
+        min-height: 450px;
+        .nav-links {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            text-align: center;
+            >a >.nav-link {
+                color: #F4FAFB;
+                margin-top: 0px;
+                margin-bottom: 0px;
+            }
+        }
         .title {
             text-transform: uppercase;
         }
@@ -50,9 +70,47 @@ a, a:visited {
     }
     .main-panel {
         background-color: #F4FAFB;
+        overflow-y: auto;
+        min-height: 100%;
+        padding-top: 30px;
+        padding-bottom: 40px;
+        text-align: center;
+        @media screen and (min-width: $break-largest) {
+            /*background-color: purple;*/
+            padding-left: 75px;
+            padding-right: 75px;
+        }
+        @media screen and (max-width: $break-large) {
+            /*background-color: orange;*/
+            padding-left: 55px;
+            padding-right: 55px;
+        }
+        @media screen and (max-width: $break-medium) {
+            /*background-color: red;*/
+            padding-left: 35px;
+            padding-right: 35px;
+        }
+        @media screen and (max-width: $break-small) {
+            overflow-y: visible;
+            /*background-color: green;*/
+        }
+        @media screen and (max-width: $break-smallest) {
+            /*background-color: blue;*/
+        }
+        .date {
+            color: #953267;
+        }
         >p {
-            margin: 25px;
             text-align: justify;
+        }
+        img {
+            width: 100%;
+        }
+        code {
+            font-size: 20px;
+            @media screen and (max-width: $break-small) {
+                font-size: 16px;
+            }
         }
     }
 }
