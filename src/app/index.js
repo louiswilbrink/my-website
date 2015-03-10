@@ -11,6 +11,10 @@ angular.module('louisw', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ng
         templateUrl: 'app/blog/angular-material.html',
         controller: 'MainCtrl'
       })
+      .when('/projects', {
+        templateUrl: 'app/projects/main.html',
+        controller: 'MainCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

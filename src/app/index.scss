@@ -24,7 +24,7 @@ a, a:visited {
     color: #953267;
 }
 
-.home-page {
+.page-layout {
     position: absolute;
     top: 0px;
     left: 0px;
@@ -111,6 +111,12 @@ a, a:visited {
             @media screen and (max-width: $break-small) {
                 font-size: 16px;
             }
+        }
+    }
+    .projects-panel {
+        >a >img {
+            width: 44px;
+            padding-left: 10px;
         }
     }
 }
