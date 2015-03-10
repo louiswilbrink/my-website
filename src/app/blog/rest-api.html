@@ -1,0 +1,40 @@
+<div class="page-layout" layout-gt-sm="row" layout-sm="column" layout-fill>
+    <div ng-include="sidePanel" class="side-panel" flex="50" layout="column" layout-align="center center"></div>
+    <div class="main-panel">
+        <h1>Create a RESTful API in 10 minutes using SailsJS and PostgreSQL</h1>
+        <p class="date">Date: March 10, 2015</p>
+        <p>I've been working with SailsJS to increase my development speed.  I spent a morning getting a simple REST API working and am summarizing my efforts so that it takes a developer after me only 10 minutes to get something up and running.</p>
+        <p>For reference, I have Node 0.12.0 installed using <a href="https://github.com/creationix/nvm">nvm</a> on a MacBook Air (Yosemite).  I use <a href="http://brew.sh/">Homebrew</a> for installations which I recommend.</p>
+        <p>Alright, to get started, open Terminal and create a folder for your SailsJS apps and navigate to the directory:</p>
+        <code>$ mkdir sails-apps && cd sails-apps</code>
+        <p>Next, install SailsJS globally:</p>
+        <code>$ npm -g install sails</code>
+        <p>Now that SailsJS is installed, create a new SailsJS app with the following command:</p>
+        <code>$ sails new sailsApi</code>
+        <p>This will create a new folder with the specified application name (sailsApi).  Kick off the webserver that SailsJS comes packaged with to make sure everything is working.</p>
+        <code>$ sails lift</code>
+        <p>If everything goes well, you should see this printed out on the command line:</p>
+        <img src="https://s3.amazonaws.com/louiswilbrink-blog/rest-api/rest-api-1.png"/>
+        <p>In your browser, verify that your SailsJS app is functioning by going to <code>localhost:1337</code>.  You should see this:</p>
+        <img src="https://s3.amazonaws.com/louiswilbrink-blog/rest-api/rest-api-2.png"/>
+        <p>Great, so now we have SailsJS working.  Let's install PostgreSql and we'll work to integrate them soon after.  Use Homebrew for installation:</p>
+        <code>$ brew update</code>
+        <code>$ brew doctor</code>
+        <code>$ brew install postgresql</code>
+        <p>To start and stop PostgreSql easily, install the lunchy gem.  Then start PostgreSql.</p>
+        <code>$ gem install lunchy</code>
+        <code>$ lunchy start postgresql</code>
+        <p>To stop PostgreSql, use lunchy:</p>
+        <code>$ lunchy stop postgresql</code>
+        <p>Continuing forward, check that PostgreSql is installed and running using the following command:</p>
+        <code>$ ps aux | grep postgresql</code>
+        <p>You should see a process with a name that looks like this:</p>
+        <code>/usr/local/opt/postgresql/bin/postgres</code>
+        <p>Great.  With a running PostgreSql database server running, create a database:</p>
+        <code>$ createdb mydb</code>
+        <p>Enter the newly created database:</p>
+        <code>$ psql mydb</code>
+        <p>This command will get you to the PostgreSql command line interface.  Here we'll want to create a table that will store data based on our RESTful API requests.  The following table definition takes into account the auto-generated fields that Sails includes on a standard <code>create</code> request.  If you don't have the same fields, you'll run into problems.  Here's the table creation code:</p>
+        <code>mydb=# CREATE TABLE users(id SERIAL PRIMARY KEY, "createdAt" TEXT, "updatedAt" TEXT);</code>
+        <p>Note the double quotes around <code>createdAt</code> and <code>updatedAt</code>.  They are necessary to create the field name with the exact capitalization.  This is to keep consistent with how the SailsJS ORM will attempt to write to the database.</p>
+</div>
