@@ -8,7 +8,8 @@ angular.module('louisw', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ng
         controller: 'MainCtrl'
       })
       .when('/angular-material', {
-        templateUrl: 'app/blog/angular-material.html'
+        templateUrl: 'app/blog/angular-material.html',
+        controller: 'MainCtrl'
       })
       .otherwise({
         redirectTo: '/'

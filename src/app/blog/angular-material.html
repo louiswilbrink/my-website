@@ -1,19 +1,5 @@
 <div class="home-page" layout-gt-sm="row" layout-sm="column" layout-fill>
-
-    <div class="side-panel" flex="50" layout="column" layout-align="center center">
-        <a><img class="avatar" src="https://s3.amazonaws.com/louiswilbrink.com/images/avatar.jpg"/></a>
-        <h1>Louis Wilbrink</h1>
-        <div class="link-icons" layout="row" layout-align="center" layout-padding>
-            <a flex href="https://twitter.com/louiswilbrink"><img src="https://s3.amazonaws.com/louiswilbrink.com/icons/Twitter_logo_blue.png"/></a>
-            <a flex href="https://github.com/louiswilbrink"><img src="https://s3.amazonaws.com/louiswilbrink.com/icons/Octocat-small.png"/></a>
-            <a flex href="https://www.linkedin.com/in/louiswilbrink"><img src="https://s3.amazonaws.com/louiswilbrink.com/icons/In-2C-21px-R.png"/></a>
-        </div>
-        <p class="title">Full Stack JavaScript Engineer</p>
-        <div class="nav-links">
-            <a href="#/angular-material"><p class="nav-link">blog</p></a>
-            <a href="#/"><p class="nav-link">about me</p></a>
-        </div>
-    </div>
+    <div ng-include="sidePanel" class="side-panel" flex="50" layout="column" layout-align="center center"></div>
     <div class="main-panel">
         <h1>Layout and Theming with Angular Material</h1>
         <p class="date">Date: March 2, 2015</p>

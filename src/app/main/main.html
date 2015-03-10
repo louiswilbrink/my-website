@@ -1,19 +1,5 @@
 <div class="home-page" layout-gt-sm="row" layout-sm="column" layout-fill>
-
-    <div class="side-panel" flex="50" layout="column" layout-align="center center">
-        <a><img class="avatar" src="https://s3.amazonaws.com/louiswilbrink.com/images/avatar.jpg"/></a>
-        <h1>Louis Wilbrink</h1>
-        <div class="link-icons" layout="row" layout-align="center" layout-padding>
-            <a flex href="https://twitter.com/louiswilbrink"><img src="https://s3.amazonaws.com/louiswilbrink.com/icons/Twitter_logo_blue.png"/></a>
-            <a flex href="https://github.com/louiswilbrink"><img src="https://s3.amazonaws.com/louiswilbrink.com/icons/Octocat-small.png"/></a>
-            <a flex href="https://www.linkedin.com/in/louiswilbrink"><img src="https://s3.amazonaws.com/louiswilbrink.com/icons/In-2C-21px-R.png"/></a>
-        </div>
-        <p class="title">Full Stack JavaScript Engineer</p>
-        <div class="nav-links">
-            <a href="#/angular-material"><p class="nav-link">blog</p></a>
-            <a href="#/"><p class="nav-link">about me</p></a>
-        </div>
-    </div>
+    <div ng-include="sidePanel" class="side-panel" flex="50" layout="column" layout-align="center center"></div>
     <div class="main-panel">
       <h2>About me</h2>
       <p>I am a full stack JavaScript engineer, building Angular apps for almost two years.  I focus on listening to new ideas, and building fast, responsive web and native apps.  Currently, I use Node on the server, along with MongoDB, MySql and Firebase for a database.  I’m a life-long learner and am always trying new frameworks and libraries.  Also, I love volleyball and basketball.
