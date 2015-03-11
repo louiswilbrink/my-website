@@ -4,7 +4,7 @@
         <h1>Create a RESTful API in 10 minutes using SailsJS and PostgreSQL</h1>
         <p class="date">Date: March 10, 2015</p>
         <p>I've been working with SailsJS to increase my development speed.  I spent a morning getting a simple REST API working and am summarizing my efforts so that it takes a developer after me only 10 minutes to get something up and running.</p>
-        <p>For reference, I have Node 0.12.0 installed using <a href="https://github.com/creationix/nvm">nvm</a> on a MacBook Air (Yosemite).  I use <a href="http://brew.sh/">Homebrew</a> for installations which I recommend.</p>
+        <p>For reference, I have Node 0.12.0 installed using <a href="https://github.com/creationix/nvm">nvm</a> on a MacBook Air (Yosemite).  I use <a href="http://brew.sh/">Homebrew</a> for installations, which I recommend.</p>
         <p>Alright, to get started, open Terminal and create a folder for your SailsJS apps and navigate to the directory:</p>
         <code>$ mkdir sails-apps && cd sails-apps</code>
         <p>Next, install SailsJS globally:</p>
@@ -17,7 +17,7 @@
         <img src="https://s3.amazonaws.com/louiswilbrink-blog/rest-api/rest-api-1.png"/>
         <p>In your browser, verify that your SailsJS app is functioning by going to <code>localhost:1337</code>.  You should see this:</p>
         <img src="https://s3.amazonaws.com/louiswilbrink-blog/rest-api/rest-api-2.png"/>
-        <p>Great, so now we have SailsJS working.  Let's install PostgreSql and we'll work to integrate them soon after.  Use Homebrew for installation:</p>
+        <p>Great, so now we have SailsJS working.  Kill the process with <code>Ctrl-C</code> and let's install PostgreSql using Homebrew:</p>
         <code>$ brew update</code>
         <code>$ brew doctor</code>
         <code>$ brew install postgresql</code>
@@ -37,4 +37,33 @@
         <p>This command will get you to the PostgreSql command line interface.  Here we'll want to create a table that will store data based on our RESTful API requests.  The following table definition takes into account the auto-generated fields that Sails includes on a standard <code>create</code> request.  If you don't have the same fields, you'll run into problems.  Here's the table creation code:</p>
         <code>mydb=# CREATE TABLE users(id SERIAL PRIMARY KEY, "createdAt" TEXT, "updatedAt" TEXT);</code>
         <p>Note the double quotes around <code>createdAt</code> and <code>updatedAt</code>.  They are necessary to create the field name with the exact capitalization.  This is to keep consistent with how the SailsJS ORM will attempt to write to the database.</p>
+        <p>Install the api generator package for SailsJS.</p>
+        <code>$ npm install sails-generator-api</code>
+        <p>Then execute the following SailsJS command to create an API endpoint for a <code>users</code> resource:</p>
+        <code>$ sails generate api users</code>
+        <p>Restart the app..</p>
+        <code>$ sails lift</code>
+        <p>..then navigate to <code>localhost:1337/users</code> in your browser.  You should see this:</p>
+        <img src="https://s3.amazonaws.com/louiswilbrink-blog/rest-api/rest-api-3.png"/>
+        <p>An empty dataset is what you'd expect since we haven't created any data -- but we will.</p>
+        <p>Next, install the PostgreSql Waterline adapter.  Waterline is the ORM that comes packaged with SailsJS.</p>
+        <code>$ npm install sails-postgresql</code>
+        <p>Now let's configure SailsJS to use PostgreSql when saving to the database.  Open the file <code>config/connection.js</code> and you'll see a section of code that looks like this:</p>
+        <img src="https://s3.amazonaws.com/louiswilbrink-blog/rest-api/rest-api-4.png"/>
+        <p>Change this configuration to reflect the PostgreSql database we created earlier.  The user can be <code>postgres</code> since this is a default user created during the installation:</p>
+        <img src="https://s3.amazonaws.com/louiswilbrink-blog/rest-api/rest-api-5.png"/>
+        <p>Now that the connection is specified correctly, we also need to configure our model accordingly.  To do this, open <code>config/model.js</code> and specify the connection we defined earlier.  It should look like this:</p>
+        <img src="https://s3.amazonaws.com/louiswilbrink-blog/rest-api/rest-api-6.png"/>
+        <p>Everything has now been set up to create data in PostgreSql using just HTTP requests in the browser.  To see this work in action, restart your SailsJS application:</p>
+        <code>$ sails lift</code>
+        <p>Now enter the following URL in your browser:</p>
+        <code>localhost:1337/users/create</code>
+        <p>You should see a response like this:</p>
+        <img src="https://s3.amazonaws.com/louiswilbrink-blog/rest-api/rest-api-7.png"/>
+        <p>Now check to see if the new record was created in PostgreSql using the following commands in the Terminal:</p>
+        <code>$ psql mydb</code>
+        <code>mydb=# SELECT * FROM users;</code>
+        <p>You should see a new record in your database:</p>
+        <img src="https://s3.amazonaws.com/louiswilbrink-blog/rest-api/rest-api-8.png"/>
+        <p>Now you have a PostgreSql database up and running, being populated by a RESTful API generated by SailsJS.  Sky's the limit from here, I hope this is helpful!</p>
 </div>
