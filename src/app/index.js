@@ -7,8 +7,12 @@ angular.module('louisw', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ng
         templateUrl: 'app/main/main.html',
         controller: 'MainCtrl'
       })
-      .when('/angular-material', {
+      .when('/blog/angular-material', {
         templateUrl: 'app/blog/angular-material.html',
+        controller: 'MainCtrl'
+      })
+      .when('/blog', {
+        templateUrl: 'app/blog/main.html',
         controller: 'MainCtrl'
       })
       .when('/blog/rest-api', {
