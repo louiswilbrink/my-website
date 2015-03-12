@@ -18,9 +18,9 @@
         <p>In your browser, verify that your SailsJS app is functioning by going to <code>localhost:1337</code>.  You should see this:</p>
         <img src="https://s3.amazonaws.com/louiswilbrink-blog/rest-api/rest-api-2.png"/>
         <p>Great, so now we have SailsJS working.  Kill the process with <code>Ctrl-C</code> and let's install PostgreSQL using Homebrew:</p>
-        <code>$ brew update</code>
-        <code>$ brew doctor</code>
-        <code>$ brew install postgresql</code>
+        <code class="block-code">$ brew update</code>
+        <code class="block-code">$ brew doctor</code>
+        <code class="block-code">$ brew install postgresql</code>
         <p>To start and stop PostgreSQL easily, install the lunchy gem.  Then start PostgreSQL.</p>
         <code>$ gem install lunchy</code>
         <code>$ lunchy start postgresql</code>
@@ -29,14 +29,18 @@
         <p>Continuing forward, check that PostgreSQL is installed and running using the following command:</p>
         <code>$ ps aux | grep postgresql</code>
         <p>You should see a process with a name that looks like this:</p>
-        <code>/usr/local/opt/postgresql/bin/postgres</code>
+        <code class="block-code">/usr/local/opt/postgresql/</code>
+        <code class="block-code">bin/postgres</code>
         <p>Great.  With a running PostgreSQL database server running, create a database:</p>
         <code>$ createdb mydb</code>
         <p>Enter the newly created database:</p>
         <code>$ psql mydb</code>
-        <p>This command will get you to the PostgreSQL command line interface.  Here we'll want to create a table that will store data based on our RESTful API requests.  The following table definition takes into account the auto-generated fields that Sails includes on a standard <code>create</code> request.  If you don't have the same fields, you'll run into problems.  Here's the table creation code:</p>
-        <code>mydb=# CREATE TABLE users(id SERIAL PRIMARY KEY, "createdAt" TEXT, "updatedAt" TEXT);</code>
-        <p>Note the double quotes around <code>createdAt</code> and <code>updatedAt</code>.  They are necessary to create the field name with the exact capitalization.  This is to keep consistent with how the SailsJS ORM will attempt to write to the database.</p>
+        <p>This command will get you to the PostgreSQL command line interface.  Here we'll want to create a table that will store data based on our RESTful API requests.  The following table definition takes into account the auto-generated fields that SailsJS includes on a standard <code>create</code> request.  If you don't have the same fields, you'll run into problems.  Here's the table creation code:</p>
+        <code class="block-code">mydb=# CREATE TABLE users(</code>
+        <code class="block-code">id SERIAL PRIMARY KEY,</code>
+        <code class="block-code">"createdAt" TEXT,</code>
+        <code class="block-code">"updatedAt" TEXT);</code>
+        <p>Note the double quotes around <code>createdAt</code> and <code>updatedAt</code>.  They are necessary to create the field name with the exact capitalization.  This is to stay consistent with how the SailsJS ORM will attempt to write to the database.</p>
         <p>Install the api generator package for SailsJS.</p>
         <code>$ npm install sails-generator-api</code>
         <p>Then execute the following SailsJS command to create an API endpoint for a <code>users</code> resource:</p>
