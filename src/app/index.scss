@@ -75,6 +75,9 @@ a, a:visited {
         padding-top: 30px;
         padding-bottom: 40px;
         text-align: center;
+        >a >.blog-title {
+            color: rgba(0, 0, 0, 0.870588);
+        }
         @media screen and (min-width: $break-largest) {
             /*background-color: purple;*/
             padding-left: 75px;
@@ -101,7 +104,7 @@ a, a:visited {
             color: #953267;
         }
         >p {
-            text-align: justify;
+            text-align: left;
         }
         img {
             width: 100%;
