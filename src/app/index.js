@@ -15,6 +15,10 @@ angular.module('louisw', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ng
         templateUrl: 'app/blog/main.html',
         controller: 'MainCtrl'
       })
+      .when('/community', {
+        templateUrl: 'app/community/main.html',
+        controller: 'MainCtrl'
+      })
       .when('/blog/rest-api', {
         templateUrl: 'app/blog/rest-api.html',
         controller: 'MainCtrl'
