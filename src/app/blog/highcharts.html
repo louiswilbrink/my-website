@@ -1,0 +1,29 @@
+<div class="page-layout" layout-gt-sm="row" layout-sm="column" layout-fill>
+    <div ng-include="sidePanel" class="side-panel" flex="50" layout="column" layout-align="center center"></div>
+    <div class="main-panel">
+        <h1>Getting Started with Highcharts and Angular</h1>
+        <p class="date">Date: May 27, 2015</p>
+        <p>Highcharts is a powerful graphing library that suits the needs of financial tech companies very well.  The <a href="http://api.highcharts.com/highcharts">API reference</a> is very well organized and detailed and the number of charts they offer make it a competitive offering versus D3.  While it's not free, it's well worth the investment.</p>
+        <p>There is also an Angular module for Highcharts, called <a href="https://github.com/pablojim/highcharts-ng">highcharts-ng</a>, which wraps Highcharts into directives.  Using this module allows you to source all of your data within the Angular ecosystem, and hand it off to a highchart directive.  It's very helpful and straight-forward, however I didn't find a lot of examples on how to create many of the charts on the <a href="http://www.highcharts.com/demo">Highcharts Demo</a> page.  I've summarized them in case other developers are experiences this too.</p>
+        <p>Here's the setup:</p>
+        <p>Install the necessary bower packages using the following commands:</p>
+        <gist id="bb7240bdfbd9a2d73ff3"></gist>
+        <p>Your <code>bower.json</code> file should look like this:</p>
+        <gist id="be58444b99f186c6aed8"></gist>
+        <p>Then include these resources in your <code>index.html</code> file:</p>
+        <gist id="c48eb57bb4ef342b5320"></gist>
+        <p>Notice that <code>highcharts-more.js</code> is included as well.  This will give you access to a few more chart types</p>
+        <h2>Wind Rose</h2>
+        <img src="https://s3.amazonaws.com/louiswilbrink-blog/highcharts/highcharts-3.png"/>
+        <p>Each graph example will consist of a simple controller and view.  In the view, you'll include the Highcharts element directive, and specify a <code>$scope</code> variable for its config attribute.  Here's the entire view:</p>
+        <gist id="6b4f9e724be602b937d9"></gist>
+        <p>In the controller, the following <code>$scope</code> values will draw the wind rose graph:</p>
+        <gist id="dbd341609e011349372c"></gist>
+        <h2>Stacked Area</h2>
+        <img src="https://s3.amazonaws.com/louiswilbrink-blog/highcharts/highcharts-4.png"/>
+        <p>View:</p>
+        <gist id="6b4f9e724be602b937d9"></gist>
+        <p>Controller:</p>
+        <gist id="c298ba8be930ae658f53"></gist>
+    </div>
+</div>

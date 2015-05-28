@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('louisw', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ngRoute', 'ngMaterial'])
+angular.module('louisw', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ngRoute', 'ngMaterial', 'gist'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
@@ -21,6 +21,10 @@ angular.module('louisw', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ng
       })
       .when('/blog/rest-api', {
         templateUrl: 'app/blog/rest-api.html',
+        controller: 'MainCtrl'
+      })
+      .when('/blog/getting-started-with-highcharts-and-angular', {
+        templateUrl: 'app/blog/highcharts.html',
         controller: 'MainCtrl'
       })
       .when('/projects', {
