@@ -2,9 +2,9 @@
     <div ng-include="sidePanel" class="side-panel" flex="50" layout="column" layout-align="center center"></div>
     <div class="main-panel">
         <h1>Getting Started with Highcharts and Angular</h1>
-        <p class="date">Date: May 27, 2015</p>
-        <p>Highcharts is a powerful graphing library that suits the needs of financial tech companies very well.  The <a href="http://api.highcharts.com/highcharts">API reference</a> is very well organized and detailed and the number of charts they offer make it a competitive offering versus D3.  While it's not free, it's well worth the investment.</p>
-        <p>There is also an Angular module for Highcharts, called <a href="https://github.com/pablojim/highcharts-ng">highcharts-ng</a>, which wraps Highcharts into directives.  Using this module allows you to source all of your data within the Angular ecosystem, and hand it off to a highchart directive.  It's very helpful and straight-forward, however I didn't find a lot of examples on how to create many of the charts on the <a href="http://www.highcharts.com/demo">Highcharts Demo</a> page.  I've summarized them in case other developers are experiences this too.</p>
+        <p class="date">Date: June 1, 2015</p>
+        <p>Highcharts is a powerful graphing library that is particularly good for financial tech apps.  The <a href="http://api.highcharts.com/highcharts">API reference</a> is very well organized and detailed and the number of charts they offer make it a competitive offering versus D3.  While it's not free, it's well worth the investment.</p>
+        <p>There is also an Angular module for Highcharts, called <a href="https://github.com/pablojim/highcharts-ng">highcharts-ng</a>, which wraps Highcharts into directives.  Using this module allows you to source all of your data within the Angular ecosystem, and hand it off to a highchart directive.  It's very helpful and straight-forward, however I didn't find a lot of examples on how to create many of the charts on the <a href="http://www.highcharts.com/demo">Highcharts Demo</a> page.  I've summarized a few of them in case other developers are experiences this too.</p>
         <p>Here's the setup:</p>
         <p>Install the necessary bower packages using the following commands:</p>
         <gist id="bb7240bdfbd9a2d73ff3"></gist>
@@ -19,11 +19,20 @@
         <gist id="6b4f9e724be602b937d9"></gist>
         <p>In the controller, the following <code>$scope</code> values will draw the wind rose graph:</p>
         <gist id="dbd341609e011349372c"></gist>
+        <p>To see this code in action, check out this <a href="http://jsfiddle.net/louiswilbrink/8uyf76ep/">fiddle</a>
         <h2>Stacked Area</h2>
         <img src="https://s3.amazonaws.com/louiswilbrink-blog/highcharts/highcharts-4.png"/>
         <p>View:</p>
         <gist id="6b4f9e724be602b937d9"></gist>
         <p>Controller:</p>
         <gist id="c298ba8be930ae658f53"></gist>
+        <p>And the fiddle <a href="http://jsfiddle.net/louiswilbrink/gxhto0oL/">here</a>.
+        <h2>Area Range with Boundary Lines</h2>
+        <img src="https://s3.amazonaws.com/louiswilbrink-blog/highcharts/highcharts-5.png"/>
+        <p>View:</p>
+        <gist id="6b4f9e724be602b937d9"></gist>
+        <p>Controller:</p>
+        <gist id="20e308385fc4a5f1ae2a"></gist>
+        <p>And the fiddle <a href="http://jsfiddle.net/louiswilbrink/q7k1e2t6/">here</a>.
     </div>
 </div>
