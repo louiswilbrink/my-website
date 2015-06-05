@@ -25,7 +25,7 @@ angular.module('louisw', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ng
       })
       .when('/blog/getting-started-with-highcharts-and-angular', {
         templateUrl: 'app/blog/highcharts.html',
-        controller: 'MainCtrl'
+        controller: 'HighchartsCtrl'
       })
       .when('/projects', {
         templateUrl: 'app/projects/main.html',

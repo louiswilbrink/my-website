@@ -1,6 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:400,700,700italic,400italic);
 
-$break-smallest: 320px;
+$break-smallest: 400px;
 $break-small: 600px;
 $break-medium: 800px;
 $break-large: 1024px;
@@ -99,6 +99,8 @@ a, a:visited {
         }
         @media screen and (max-width: $break-smallest) {
             /*background-color: blue;*/
+            padding-left: 15px;
+            padding-right: 15px;
         }
         .date {
             color: #953267;

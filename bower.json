@@ -10,7 +10,7 @@
     "angular-route": "~1.3.4",
     "angular-material": "~0.8.1",
     "angular": "~1.3.4",
-    "angular-gist": "~0.1.3"
+    "angular-gist": "git@github.com:louiswilbrink/angular-gist.git"
   },
   "devDependencies": {
     "angular-mocks": "~1.3.4"
