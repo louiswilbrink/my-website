@@ -27,6 +27,10 @@ angular.module('louisw', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ng
         templateUrl: 'app/blog/highcharts.html',
         controller: 'HighchartsCtrl'
       })
+      .when('/blog/using-sendgrid-to-power-your-websites-email-forms', {
+        templateUrl: 'app/blog/sendgrid.html',
+        controller: 'MainCtrl'
+      })
       .when('/projects', {
         templateUrl: 'app/projects/main.html',
         controller: 'MainCtrl'
