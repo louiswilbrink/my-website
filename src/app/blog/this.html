@@ -1,0 +1,34 @@
+<div class="page-layout" layout-gt-sm="row" layout-sm="column" layout-fill>
+    <div ng-include="sidePanel" class="side-panel" flex="50" layout="column" layout-align="center center"></div>
+    <div class="main-panel">
+        <h1>Understanding the "this" keyword in JavaScript</h1>
+        <p class="date">Date: July 1, 2015</p>
+        <p>The <code>this</code> keyword in JavaScript can be pretty confusing.  It's name itself is vague and the value of <code>this</code> can change in different conditions.  But understanding <code>this</code> provides powerful functionality, and you'll see it in many codebases, so it's worth learning the definition and rules.</p>
+        <p><code>this</code> is defined as a function's <strong>invocation context</strong>.  Whenever a function is called, that is when the invocation context is set.  The object that calls the function becomes the "owner" while the instance of that function is executing.  This means that whenever <code>this</code> is referenced in the function, the calling object will be the value.</p>
+        <p>In the following example, what's the invocation context?</p>
+        <gist id="717e1e4e6342686fff6d"></gist>
+        <p>Trick question!  There is no invocation context because the function was never called (or "invoked").  Again, invocation context has nothing to do with how the function is defined, but everything to do with how the function is called.
+        <p>In the next example, we actually call the function.  So what's the invocation context now?</p>
+        <gist id="e17c6880001d86ec02d6"></gist>
+        <p>The Window object is returned.  If a function was not called as a method of an object, then the invocation context defaults to the <strong>global object</strong>.  In the browser, the global object is the Window object.  In Node, it is a very large object (Enter the Node REPL and just type "this" and press enter to see).  Whatever the environment, functions need to be called by an object (and that object becomes the function's invocation context).</p>
+        <p>Let's look at one more example:</p>
+        <gist id="d35bb01025a1f8e8977e"></gist>
+        <p>Here we see an object with a <code>name</code> property and a method called <code>getName</code>.  Since methods are functions, this method will have an invocation context once we call it.  When we log the invocation context of the function, we get <code>myObject</code>.</p>
+        <p>For a long time, I thought that the way we defined the function (as a method of an object) dictated the value of <code>this</code> inside the function.  This was conceptually incorrect.  What defined the invocation context was how the function was called: <code>myObject.getName()</code>.  From this function call, you see that <code>myObject</code> was the calling object, and would be the function's invocation context.</p>
+        <h2><code>this</code> is Dynamic!</h2>
+        <p>Here's a special feature: you can change a function's invocation context by simply calling the function differently.  Every function has three methods that allow you to run the function as if it were a method of a specified object: <code>call()</code>, <code>apply()</code>, and <code>bind()</code>.</p>
+        <p>Here's an example where we use the <code>call()</code> function:</p>
+        <gist id="91edc72d76339ee42f23"></gist>
+        <p>When we log the invocation context, we get <code>myObject</code>.  This was the exact result when we had defined a method on the object and called it.  In line 10, we called the function <code>add()</code> as if it were a method of <code>myObject</code>.</p>
+        <p>The first parameter of the <code>call()</code> method is the invocation context you are specifying.  Any subsequent parameters you specify will map to the parameters listed in the function signature.  Here is an example:</p>
+        <gist id="f53ea0070380aa54379c"></gist>
+        <p>At this point, we understand what invocation context is, and how to change it by using the <code>call()</code> method.  <code>apply()</code> and <code>bind()</code> are very similar, but have important distinctions as well.</p>
+        <p>When you call the <code>apply()</code> method on a function, the parameters values are specified in an array instead of separated by commas:</p>
+        <gist id="90a9407d043b77ebff5d"></gist>
+        <p>The advantage of this is being able to call a function and hand it a dynamic number of parameters.  A good example of this is using the <code>Math.max()</code> function.  It takes in a list of parameters that are separated by commas.  But what if you don't know how many numbers you want to evaluate?  By using the <code>apply()</code> function, you can add any number of values to an array and then send those values to a function.  Take a look:</p>
+        <gist id="b6bf2b193f8493df57f1"></gist>
+        <p>The last method that alters the invocation context is <code>bind()</code>.  This runs exactly the same way as <code>call()</code> except it doesn't actually invoke the function -- it only sets up a brand new function.  When <code>bind()</code> runs, the new function it creates already "knows" the specified invocation context.  Here's some code:</p>
+        <gist id="b32426698bb78ba41ecd"></gist>
+        <p>The power of <code>call()</code>, <code>apply()</code>, <code>bind()</code> is that you can run stand-alone functions as if they were methods of an object.  With this ability, you can organize your code in a way that makes data transformations on objects more composable -- you run "temporary" methods on your data objects, and then throw them away.  There's no need to define reusable functions as methods on your object.  Keep those reusable functions separate, and use <code>call()</code>, <code>apply()</code>, <code>bind()</code>.</p>
+    </div>
+</div>

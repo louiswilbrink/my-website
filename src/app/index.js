@@ -23,6 +23,10 @@ angular.module('louisw', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ng
         templateUrl: 'app/blog/rest-api.html',
         controller: 'MainCtrl'
       })
+      .when('/blog/understanding-the-this-keyword-in-javascript', {
+        templateUrl: 'app/blog/this.html',
+        controller: 'MainCtrl'
+      })
       .when('/blog/getting-started-with-highcharts-and-angular', {
         templateUrl: 'app/blog/highcharts.html',
         controller: 'HighchartsCtrl'
