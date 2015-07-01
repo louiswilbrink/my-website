@@ -1,7 +1,7 @@
 <div class="page-layout" layout-gt-sm="row" layout-sm="column" layout-fill>
     <div ng-include="sidePanel" class="side-panel" flex="50" layout="column" layout-align="center center"></div>
     <div class="main-panel">
-        <h1>Understanding the "this" keyword in JavaScript</h1>
+        <h1>Understanding the "this" Keyword in JavaScript</h1>
         <p class="date">Date: July 1, 2015</p>
         <p>The <code>this</code> keyword in JavaScript can be pretty confusing.  It's name itself is vague and the value of <code>this</code> can change in different conditions.  But understanding <code>this</code> provides powerful functionality, and you'll see it in many codebases, so it's worth learning the definition and rules.</p>
         <p><code>this</code> is defined as a function's <strong>invocation context</strong>.  Whenever a function is called, that is when the invocation context is set.  The object that calls the function becomes the "owner" while the instance of that function is executing.  This means that whenever <code>this</code> is referenced in the function, the calling object will be the value.</p>
