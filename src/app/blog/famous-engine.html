@@ -1,0 +1,34 @@
+<div class="page-layout" layout-gt-sm="row" layout-sm="column" layout-fill>
+    <div ng-include="sidePanel" class="side-panel" flex="50" layout="column" layout-align="center center"></div>
+    <div class="main-panel">
+        <h1>Diving Into Famous Engine</h1>
+        <p class="date">Date: July 10, 2015</p>
+        <p>A few weeks ago, I attended <a href="jquerysf.com">jQuerySF2015</a> and was blown away by the keynote presentation announcing <a href="famous.org">Famous Engine and Framework</a>.  If you've ever seen Famous demos, your jaw has dropped from the animations they are able to pull off with zero jerkiness or slowdown.</p>
+        <p>Famous CEO and Founder <a href="https://angel.co/stevenewcomb">Steve Newcomb</a> argued that the web would eventually win over native, and I for one believe him.  Why?  Famous Engine takes the same approach as gaming engines, having separate steps for calculating the movement of bodies and for rendering the final scene.  On top of that, Famous has built-in physics libraries that let you add gravity and collision to your interface.  Lastly, it makes it easy to incorporate animation tweens on elements with great performance, further blurring the line between web and native.</p>
+        <p>I went through the docs and wanted to summarize my experience to help any others braving the new and improved codebase.  First, I want to say that I quickly realized that the Framework was difficult to work with outside of their "getting started" example.  Call it a snap judgement, but I felt like it wasn't quite ready for primetime.  The Engine, however, proved much more mature and organized.  I commend the Famous team for abstracting so many concepts and organizing their API in a way that was easy to understand.  The rest of this post is only about working with the Engine.</p>
+        <h2>Getting Started</h2>
+        <p>The first hurdle you'll encounter is that you can't just add <code>script</code> tags to an html page and link to a CDN to get going.  The Famous codebase is organized in modules, and must first be built using Node.  Let's start by creating a new folder and installing the Famous library:</p>
+        <p style="text-align: center"><code>$ mkdir learning-famous && cd learning-famous</code></p>
+        <p style="text-align: center"><code>$ npm init</code></p>
+        <p style="text-align: center"><code>$ npm install famous --save</code></p>
+        <p>Next we create a file, <code>start.js</code>, and pull in the Famous library using <code>require</code> statements.</p>
+        <gist id=0564235e33e279ecada9></gist>
+        <p>Now we have to build a script file that we can include in <code>script</code> tags on our web page.  We do this using <a href="https://github.com/substack/node-browserify">Browserify</a>.  Install Browserify globally, then enter the following command to recursively analyze all of the <code>require()</code> calls in your script and build a bundle that you can serve to the browser:</p>
+        <p style="text-align: center"><code>$ npm install -g browserify</code></p>
+        <p style="text-align: center"><code>$ browserify start.js -o bundle.js</code></p>
+        <p>You'll see that the new file <code>bundle.js</code> has been created.  Include this into the webpage, <code>index.html</code>:</p>
+        <gist id=814463de3bddf82a97d4></gist>
+        <p>Then load <code>index.html</code> in your browser.  Open the developer console and you'll see the Famous object logged to the screen:</p>
+        <img src="https://s3.amazonaws.com/louiswilbrink-blog/famous/Screen+Shot+2015-07-10+at+1.38.07+PM.png"/>
+        <p>Now we're cooking!  We can exercise the Famous library in our <code>start.js</code> file, build it using Browserify, and see Famous at work in the browser.  In order to speed up your workflow, make sure to check out <a href="https://github.com/substack/watchify">Watchify</a> to automatically rebuild/rebundle the script whenever you make changes to <code>start.js</code></p>
+        <h2>Scene, Nodes</h2>
+        <p>The Famous Engine starts by creating a scene and adding bodies to it.  You can eventually tell these bodies to change color, shape, and even velocity, and the Engine will render those changes in the browser.  All bodies within a scene start off as <a href="http://famous.org/docs/core/Node.html">Nodes</a>.  Nodes are the basic building block of the scene.  They don't start with much in the way of distinguishing characteristics, but they do serve an organizational purpose.  The Scene is the rootNode of a tree.  Every body in the scene is a child node of the scene, or a grandchild node, or a great grandchild node, etc.</p>
+        <p>Let's add to the <code>start.js</code> file.  We want to create the Famous Engine, a new scene, and a few nodes within the scene:</p>
+        <gist id="e84079db2ad63194069c"></gist>
+        <p>We've just added a few nodes to the scene and initiated the Famous Engine.  These nodes can go on to become virtually anything: circles that bounce, form inputs, or floating images.  All of those distinguishing characteristics are added to a Node by using...</p>
+        <h2>Components: DOMElement, Position, Size</h2>
+        <p>..Components!  Nodes gain distinguishing characterstics by adding components to them.  Let's turn <code>myNode</code> into a DOM element:</p>
+        <h2>Transitionables</h2>
+        <h2>Easing Curves</h2>
+    </div>
+</div>
