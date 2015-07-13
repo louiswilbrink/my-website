@@ -25,10 +25,36 @@
         <p>The Famous Engine starts by creating a scene and adding bodies to it.  You can eventually tell these bodies to change color, shape, and even velocity, and the Engine will render those changes in the browser.  All bodies within a scene start off as <a href="http://famous.org/docs/core/Node.html">Nodes</a>.  Nodes are the basic building block of the scene.  They don't start with much in the way of distinguishing characteristics, but they do serve an organizational purpose.  The Scene is the rootNode of a tree.  Every body in the scene is a child node of the scene, or a grandchild node, or a great grandchild node, etc.</p>
         <p>Let's add to the <code>start.js</code> file.  We want to create the Famous Engine, a new scene, and a few nodes within the scene:</p>
         <gist id="e84079db2ad63194069c"></gist>
-        <p>We've just added a few nodes to the scene and initiated the Famous Engine.  These nodes can go on to become virtually anything: circles that bounce, form inputs, or floating images.  All of those distinguishing characteristics are added to a Node by using...</p>
-        <h2>Components: DOMElement, Position, Size</h2>
-        <p>..Components!  Nodes gain distinguishing characterstics by adding components to them.  Let's turn <code>myNode</code> into a DOM element:</p>
+        <p>We've just added a few nodes to the scene and initiated the Famous Engine.  These nodes can go on to become virtually anything: circles that bounce, form inputs, or floating images.  All of those distinguishing characteristics are added to a Node by using Components, our next subject.</p>
+        <p>This is a good time to check what is happening in the DOM when we do all of this.  The answer is simple: nothing's there yet!  At this point, we've only organized a scene and started the engine.  Changing the DOM isn't necessary.</p>
+        <img src="https://s3.amazonaws.com/louiswilbrink-blog/famous/Screen+Shot+2015-07-13+at+10.43.23+AM.png"/>
+        <h2>Components: DOMElement, Size, Position</h2>
+        <p>Nodes gain distinguishing characterstics by adding components to them.  Let's turn <code>myNode</code> into a DOM element:</p>
+        <gist id="972d67f1d91a0d911a11"></gist>
+        <p>We'll also want to make this node somewhat visible to know what's going on.  We'll set a background color and some content:</p>
+        <gist id="052e4e75bd2ab0a46eef"></gist>
+        <p>Reload your browser and you'll see our work render on the screen.</p>
+        <img src="https://s3.amazonaws.com/louiswilbrink-blog/famous/Famous+Learning+1.png"/>
+        <p>You'll also notice that our DOM has changed: a div with the class <code>famous-dom-renderer</code> has been inserted into the DOM, and it has a child element -- which corresponds to <code>myNode</code>.</p>
+        <img src="https://s3.amazonaws.com/louiswilbrink-blog/famous/Famous+Learning+2.png"/>
+        <p>This is a very simple node, so let's add more components: Size and Position.  The default size of the Famous Renderer and its children is to expand to its parent.  We'll change the size of the node by adding the Size component to the node and calling its methods:</p>
+        <gist id="b8819b38ee0be27f52e7"></gist>
+        <p>Running this in the browser, you'll see a much smaller box. Now, let's position that box by using the Position component.</p>
+        <gist id="f3f6ce9cd632af9a22e7"></gist>
+        <p>The final result will look like this:</p>
+        <img src="https://s3.amazonaws.com/louiswilbrink-blog/famous/Famous+Learning+3.png"/>
         <h2>Transitionables</h2>
-        <h2>Easing Curves</h2>
+        <p>A transitionable starts as one value and transitions to another over a period of time, it's as simple as that.  The timing of that transition, however, is tied to the Famous Engine clock.  We create a simple one here:</p>
+        <gist id="32cb360c3dfc4063038e"></gist>
+        <p>It's very important to note that, behind the scenes, the transitionable's state (or current value) isn't continually recalculating in the background.  It is ONLY calculated when you call the <code>.get()</code> method.  So if we want to see the value of the transitionable halfway through the transition, we can use a timeout:</p>
+        <gist id="82f6c8957ee3bab15661"></gist>
+        <p>The logged value will be roughtly 500ms.  Another important thing to point out is that the previous example is actually using two clocks: the Window object clock (setTimeout), and the FamousEngine clock -- which is used to calculate the transitionable's value.  This isn't a good idea, so get into the habit of using the Famous Engine's built in clock.  The altered code is below:</p>
+        <gist id="db6f4fda6010934b6c57"></gist>
+        <p>Transitionables is where things get really interesting.  We can use transitionables to calculate the change in state of each body in the scene, and then render the scene as a whole.  This is what game engines do: calculating the state of the world, and then giving the GPU one frame to draw.  If the calculations take less than 1/60th of a second, the browser can draw 60 frames per second, making all animations and movement smooth.</p>
+        <p>For example, let's use transitionables in our previous example code: the light blue box.  We can make the box's position dependent on a transitionable's value.  To do this, the node first needs to hook into the update loop of the scene.  Once we do this, we can calculate the transitionable's current value on each update, and assign it to the node's position:</p>
+        <gist id="0356865b7d04f3c89b12"></gist>
+        <p>Running this in the browser, you'll see a lightblue box glide across the screen.  Load this on your phone and it will be just as smooth.  
+        , and then calculate the transitionable's current value to assign to the node's position.</p>
+        <p>I hope this exploration of the new Famous Engine is helpful.  I can already see a lot of applications using only the Famous Engine, nodes, components, and transitionables.  Offering smooth animations of DOM elements (that are also SEO-searchable) can offer immediate value.  It will be even more fun learning the WebGL/Canvas capabilities, but that's for another post.</p>
     </div>
 </div>
