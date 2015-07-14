@@ -1,9 +1,9 @@
 <div class="page-layout" layout-gt-sm="row" layout-sm="column" layout-fill>
     <div ng-include="sidePanel" class="side-panel" flex="50" layout="column" layout-align="center center"></div>
     <div class="main-panel">
-        <h1>Diving Into Famous Engine</h1>
-        <p class="date">Date: July 10, 2015</p>
-        <p>A few weeks ago, I attended <a href="jquerysf.com">jQuerySF2015</a> and was blown away by the keynote presentation announcing <a href="famous.org">Famous Engine and Framework</a>.  If you've ever seen Famous demos, your jaw has dropped from the animations they are able to pull off with zero jerkiness or slowdown.</p>
+        <h1>Diving into the Famous Engine</h1>
+        <p class="date">Date: July 13, 2015</p>
+        <p>A few weeks ago, I attended <a href="http://www.jquerysf.com">jQuerySF2015</a> and was blown away by the keynote presentation announcing <a href="http://www.famous.org">Famous Engine and Framework</a>.  If you've ever seen the Famous demos, your jaw has dropped from the animations they are able to pull off with zero jerkiness or slowdown.</p>
         <p>Famous CEO and Founder <a href="https://angel.co/stevenewcomb">Steve Newcomb</a> argued that the web would eventually win over native, and I for one believe him.  Why?  Famous Engine takes the same approach as gaming engines, having separate steps for calculating the movement of bodies and for rendering the final scene.  On top of that, Famous has built-in physics libraries that let you add gravity and collision to your interface.  Lastly, it makes it easy to incorporate animation tweens on elements with great performance, further blurring the line between web and native.</p>
         <p>I went through the docs and wanted to summarize my experience to help any others braving the new and improved codebase.  First, I want to say that I quickly realized that the Framework was difficult to work with outside of their "getting started" example.  Call it a snap judgement, but I felt like it wasn't quite ready for primetime.  The Engine, however, proved much more mature and organized.  I commend the Famous team for abstracting so many concepts and organizing their API in a way that was easy to understand.  The rest of this post is only about working with the Engine.</p>
         <h2>Getting Started</h2>
@@ -56,5 +56,6 @@
         <p>Running this in the browser, you'll see a lightblue box glide across the screen.  Load this on your phone and it will be just as smooth.  
         , and then calculate the transitionable's current value to assign to the node's position.</p>
         <p>I hope this exploration of the new Famous Engine is helpful.  I can already see a lot of applications using only the Famous Engine, nodes, components, and transitionables.  Offering smooth animations of DOM elements (that are also SEO-searchable) can offer immediate value.  It will be even more fun learning the WebGL/Canvas capabilities, but that's for another post.</p>
+        <p>All code examples can be found on <a href="https://github.com/louiswilbrink/learning-famous">my github</a>.</p>
     </div>
 </div>

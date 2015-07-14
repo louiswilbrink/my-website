@@ -23,7 +23,7 @@ angular.module('louisw', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ng
         templateUrl: 'app/blog/rest-api.html',
         controller: 'MainCtrl'
       })
-      .when('/blog/diving-into-famous-engine', {
+      .when('/blog/diving-into-the-famous-engine', {
         templateUrl: 'app/blog/famous-engine.html',
         controller: 'MainCtrl'
       })
